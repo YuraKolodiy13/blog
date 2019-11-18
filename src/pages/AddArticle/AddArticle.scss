@@ -1,0 +1,17 @@
+.addArticle{
+  display: flex;
+  flex-direction: column;
+  .MuiFormControl-root {
+    margin: 0 0 40px;
+    position: relative;
+    .MuiFormHelperText-root{
+      position: absolute;
+      top: 100%;
+      margin-left: 0;
+      &::before{
+        content: 'f071';
+        font-family: 'FontAwesome';
+      }
+    }
+  }
+}
