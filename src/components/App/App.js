@@ -5,7 +5,9 @@ import Post from "../../pages/Post/Post";
 import Header from "../Header/Header";
 import Login from "../../pages/Auth/Login/Login";
 import Register from "../../pages/Auth/Register/Register";
-import AddArticle from "../../pages/AddArticle/AddArticle";
+import AddPost from "../../pages/AddPost/AddPost";
+import User from "../../pages/User/User";
+import './App.scss'
 
 class App extends Component{
   render(){
@@ -14,8 +16,9 @@ class App extends Component{
         <Header/>
         <Switch>
           <Route path='/' component={Posts} exact/>
-          <Route path='/post/:id' component={Post} exact/>
-          <Route path='/add' component={AddArticle}/>
+          <Route path='/post/:id' component={Post}/>
+          <Route path='/user/:id' component={User}/>
+          <Route path='/add' component={AddPost}/>
           <Route path='/login' component={Login}/>
           <Route path='/register' component={Register}/>
           <Redirect to='/'/>

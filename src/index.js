@@ -12,14 +12,7 @@ const jwt = js_cookie.get('jwt');
 if(jwt){
   const decoded = jwt_decode(jwt);
   store.dispatch(setCurrentUser(decoded));
-
   const currentTime = Date.now() / 1000;
-  console.log(currentTime / 60 / 24 / 30 / 12, 'currentTime')
-  console.log(decoded.exp / 60 / 24 / 30 / 12, 'decoded.exp')
-  console.log(decoded.iat / 60 / 24 / 30 / 12, 'decoded.iat')
-
-  console.log(currentTime  > decoded.exp)
-
   if(decoded.exp < currentTime){
     store.dispatch(logout());
     window.location.href='/login'
