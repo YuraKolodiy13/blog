@@ -17,9 +17,10 @@ class AddComment extends Component{
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.addComment(this.props.id, this.state);
-    console.log(this.state)
-  }
+    this.props.addComment(this.props.id, this.state)
+      .then(() => this.setState({text: ''}))
+
+  };
 
   changeValue = (e) => {
     this.setState({
@@ -55,8 +56,8 @@ class AddComment extends Component{
   }
 }
 
-const mapDisptachToProps = {
+const mapDispatchToProps = {
   addComment: addComment
 }
 
-export default connect(null, mapDisptachToProps)(AddComment)
+export default connect(null, mapDispatchToProps)(AddComment)

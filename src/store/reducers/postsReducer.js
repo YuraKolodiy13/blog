@@ -1,7 +1,7 @@
 import {
   ADD_COMMENT,
-  ADD_POST,
-  DELETE_POST, EDIT_POST,
+  ADD_POST, DELETE_COMMENT,
+  DELETE_POST, EDIT_COMMENT, EDIT_POST,
   GET_POST_START,
   GET_POST_SUCCESS,
   GET_POSTS_START,
@@ -44,19 +44,20 @@ const postReducer = (state = initialState, action) => {
         loading: false
       };
     case DELETE_POST:
+    case EDIT_POST:
       return {
         ...state,
         post: {}
       };
-    case EDIT_POST:
-      return {
-        ...state,
-        posts: []
-      };
     case ADD_COMMENT:
+    case DELETE_COMMENT:
       return {
         ...state,
         post: action.post
+      };
+    case EDIT_COMMENT:
+      return {
+        ...state
       };
 
     default:

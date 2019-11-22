@@ -16,6 +16,12 @@ class AddPost extends Component{
     };
   }
 
+  componentDidMount(){
+    if(!this.props.user){
+      this.props.history.push('/login')
+    }
+  }
+
   changeValue = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -103,8 +109,12 @@ class AddPost extends Component{
   }
 }
 
+const mapsStateToProps = state => ({
+  user: state.auth.user
+});
+
 const mapDispatchToProps = {
   addPost: addPost
 };
 
-export default connect(null, mapDispatchToProps)(AddPost)
+export default connect(mapsStateToProps, mapDispatchToProps)(AddPost)

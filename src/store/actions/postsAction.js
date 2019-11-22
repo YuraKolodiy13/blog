@@ -5,7 +5,7 @@ import {
   GET_POST_SUCCESS,
   GET_POSTS_START,
   GET_POSTS_SUCCESS,
-  EDIT_POST, ADD_COMMENT
+  EDIT_POST, ADD_COMMENT, DELETE_COMMENT, EDIT_COMMENT
 } from "./actionType";
 import axios from "axios/index";
 
@@ -57,11 +57,27 @@ export const editPost = (id, post) => async dispatch => {
   dispatch({
     type: EDIT_POST
   })
-}
+};
+
 export const addComment = (id, comment) => async dispatch => {
   const res = await axios.post(`/api/posts/comment/${id}`, comment);
   dispatch({
     type: ADD_COMMENT,
     post: res.data
   })
-}
+};
+
+export const deleteComment = id => async dispatch => {
+  const res = await axios.delete(`/api/posts/comment/${id}`);
+  dispatch({
+    type: DELETE_COMMENT,
+    post: res.data
+  })
+};
+
+export const editComment = (id, comment) => async dispatch => {
+  await axios.put(`/api/posts/comment/${id}`, comment);
+  dispatch({
+    type: EDIT_COMMENT
+  })
+};
