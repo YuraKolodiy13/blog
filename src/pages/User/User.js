@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react'
 import {connect} from "react-redux";
 import {getPosts} from "../../store/actions/postsAction";
 import {Link} from  'react-router-dom'
+import {Helmet} from "react-helmet";
 
 class User extends Component{
 
@@ -12,6 +13,9 @@ class User extends Component{
   render(){
     return(
       <div>
+        <Helmet>
+          <title>Author</title>
+        </Helmet>
         {/*<p>{this.props.user.name}</p>*/}
         {/*<p>{this.props.user.email}</p>*/}
         <h2>Authors posts</h2>

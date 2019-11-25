@@ -17,6 +17,7 @@ class AddComment extends Component{
 
   onSubmit = e => {
     e.preventDefault();
+    console.log(this.props.id,33)
     this.props.addComment(this.props.id, this.state)
       .then(() => this.setState({text: ''}))
 

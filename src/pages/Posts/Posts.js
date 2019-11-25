@@ -6,6 +6,7 @@ import Loader from "../../components/Loader/Loader";
 import './Posts.scss'
 import Button from '@material-ui/core/Button';
 import Authors from "../../components/Authors/Authors";
+import Helmet from 'react-helmet'
 
 class Posts extends Component{
   componentDidMount(){
@@ -17,6 +18,9 @@ class Posts extends Component{
     }
     return(
       <div className='posts'>
+        <Helmet>
+          <title>Home Page</title>
+        </Helmet>
         <div className="posts__list">
           <h1>List of articles</h1>
           <div className="posts__items">

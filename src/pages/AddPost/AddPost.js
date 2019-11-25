@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import {addPost} from "../../store/actions/postsAction";
 import {connect} from "react-redux";
 import './AddPost.scss'
+import {Helmet} from "react-helmet";
 
 class AddPost extends Component{
 
@@ -17,6 +18,11 @@ class AddPost extends Component{
   }
 
   componentDidMount(){
+    if(!this.props.user){
+      this.props.history.push('/login')
+    }
+  }
+  componentDidUpdate(){
     if(!this.props.user){
       this.props.history.push('/login')
     }
@@ -59,6 +65,9 @@ class AddPost extends Component{
   render(){
     return(
       <div className='container'>
+        <Helmet>
+          <title>Add post</title>
+        </Helmet>
         <ValidatorForm onSubmit={this.onSubmit} className='addPost trigger__wrap'>
           <TextValidator
             id="outlined-basic"

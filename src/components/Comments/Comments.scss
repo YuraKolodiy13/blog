@@ -26,6 +26,16 @@
         font-size: 14px;
         line-height: 26px;
       }
+      &[data-open="false"]{
+        form{
+          display: none;
+        }
+      }
+      &[data-open="true"]{
+        .comments__edit, p{
+          display: none;
+        }
+      }
     }
   }
 }

@@ -12,6 +12,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import '../index.scss'
 import {clearError, registerUser} from "../../../store/actions/authAction";
 import {connect} from "react-redux";
+import {Helmet} from "react-helmet";
 
 class Register extends Component{
 
@@ -51,6 +52,9 @@ class Register extends Component{
   render(){
     return(
       <form onSubmit={this.onSubmit} className='auth'>
+        <Helmet>
+          <title>Register</title>
+        </Helmet>
         <div className="form__field">
           <TextField
             id="outlined-basic"

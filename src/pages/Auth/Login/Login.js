@@ -13,6 +13,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 import '../index.scss'
 import {clearError, loginUser} from "../../../store/actions/authAction";
+import {Helmet} from "react-helmet";
 
 class Login extends Component{
 
@@ -49,6 +50,9 @@ class Login extends Component{
   render(){
     return(
       <form className='auth' onSubmit={this.onSubmit}>
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
         <div className="form__field">
           <TextField
             type='email'

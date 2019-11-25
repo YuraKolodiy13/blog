@@ -14,6 +14,7 @@ import AddComment from "../../components/AddComment/AddComment";
 import {Link} from  'react-router-dom'
 import Comments from "../../components/Comments/Comments";
 import Authors from "../../components/Authors/Authors";
+import {Helmet} from "react-helmet";
 
 class Post extends Component{
 
@@ -44,6 +45,9 @@ class Post extends Component{
     }
     return(
       <div className="post">
+        <Helmet>
+          <title>{post.title}</title>
+        </Helmet>
         <div className="post__list">
           <div className="posts__info post__info">
             <p>{post.author ? <Link to={`/user/${post.author._id}`}>{post.author.name}</Link> : null}</p>
@@ -82,7 +86,7 @@ class Post extends Component{
             </div>
             : null }
           {post.comments
-            ? <Comments />
+            ? <Comments id={this.props.match.params.id} />
             : null}
 
           {user
